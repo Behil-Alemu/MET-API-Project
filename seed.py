@@ -1,10 +1,10 @@
 """Seed file to make sample data for db."""
 
+from models import User, Post, Likes, Inspiration, db
+from app import app
 
-from app import db
-from models import User, Post, Likes, Inspiration
 # Create all tables# DROP DATABASE capstone_db createdb capstone_db
-
+db.drop_all()
 db.create_all()
 
 
