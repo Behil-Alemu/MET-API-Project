@@ -1,6 +1,6 @@
 1. What goal will your website be designed to achieve?
 
-    The goal is to create a website that lets users discover artists and art that are displayed in the MIT Museum. The information available can be used as an accurate reference or inspiration for artists. Users can select a timeline, Era, geoLocation, medium, title ….etc to find an art piece. There will also be an option to see if the art is available and displayed at the MIT Museum. Users can create a user account to login and post their artwork  or add a collection of their inspiration in a cart(Like a cart on an online shopping site ). Maybe an option for others to add comments. Their posts can include tags corresponding with the art piece that inspired them. Later on, the website can be developed further so that artists can sell their work by creating a buyer or seller account. 
+    The goal is to create a website that lets users discover artists and art that are displayed in the MET Museum. The information available can be used as an accurate reference or inspiration for artists. Users can select a timeline, Era, geoLocation, medium, title ….etc to find an art piece. There will also be an option to see if the art is available and displayed at the MET Museum. Users can create a user account to login and post their artwork  or add a collection of their inspiration in a cart(Like a cart on an online shopping site ). Maybe an option for others to add comments. Their posts can include tags corresponding with the art piece that inspired them. Later on, the website can be developed further so that artists can sell their work by creating a buyer or seller account. 
 
 2. What kind of users will visit your site? In other words, what is the demographic of your users?
     Artist, Art students, or anyone who is interested in art. 
@@ -47,7 +47,7 @@ questions like the ones below, but feel free to add more information:
     - What functionality will your app include?
         Users can add liked images to their inspiration cart and refer to them later. There will be a functionality to search for images as well as add your own artwork. 
     - What will the user flow look like?
-        Welcome page with looping random image and nav bar on top. Next login or signup if desired. If logged in then view other users’ artwork or post your own artwork. If not then,  use the website to look through the art provided by the MIT Museum API. 
+        Welcome page with looping random image and nav bar on top. Next login or signup if desired. If logged in then view other users’ artwork or post your own artwork. If not then,  use the website to look through the art provided by the MET Museum API. 
 
 f. What features make your site more than CRUD? Do you have any stretch
 goals?
