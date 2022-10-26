@@ -2,12 +2,13 @@
 
 from models import User, Post, Likes, Inspiration
 from app import db
+import app
 
-# Create all tables
+# Create all tables# DROP DATABASE capstone_db createdb capstone_db
+with app.app_context():
+    db.drop_all() 
+    db.create_all()
 
-db.drop_all() 
-# DROP DATABASE capstone_db createdb capstone_db
-db.create_all()
 
 
 
