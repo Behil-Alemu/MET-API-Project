@@ -1,7 +1,6 @@
 from crypt import methods
 from email.mime import image
 from re import L
-from tkinter import Image
 import flask
 from urllib import response
 from flask import Flask, jsonify, request, render_template,  redirect, flash, session, g
