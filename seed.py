@@ -5,6 +5,7 @@ from app import app
 
 # Create all tables
 with app.app_context(): 
+    db.drop_all() 
 # DROP DATABASE capstone_db createdb capstone_db
     db.create_all()
 
