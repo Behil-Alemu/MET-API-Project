@@ -90,6 +90,7 @@ class Post(db.Model):
     created_at=db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='cascade'), nullable=False)
+    user = db.relationship('User')
 
     @property
     def friendly_date(self):
@@ -120,6 +121,7 @@ class Inspiration(db.Model):
     inspiration = db.Column(db.Integer, nullable=False, unique=True)
 
     user_id = db.Column(db.Integer,db.ForeignKey("users.id",ondelete='cascade'))
+    users = db.relationship('User',backref='inpiration')
 
 def connect_db(app):
     db.app = app
