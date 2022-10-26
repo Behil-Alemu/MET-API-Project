@@ -15,12 +15,19 @@ import requests
 from random import sample
 from sqlalchemy import func, null
 import os
+import re
+
 
 CURR_USER_KEY = "curr_user"
 app = Flask(__name__)
+
+uri = os.getenv("DATABASE_URL")
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = (
     os.environ.get(
-    'DATABASE_URL', 'postgresql:///capstone'))
+    uri, 'postgresql:///capstone'))
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
