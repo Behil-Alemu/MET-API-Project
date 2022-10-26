@@ -2,6 +2,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 import datetime
+from app import db
 
 from requests import post
 
