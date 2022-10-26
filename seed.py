@@ -4,8 +4,9 @@ from models import User, Post, Likes, Inspiration, db
 from app import app
 
 # Create all tables# DROP DATABASE capstone_db createdb capstone_db
-db.drop_all()
-db.create_all()
+with app.app_context():
+    db.drop_all()
+    db.create_all()
 
 
 
