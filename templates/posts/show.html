@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Art by Users{% endblock%}
+
+{% block content %}
+
+<div class="col-lg-6 col-md-8 col-sm-12">
+  <ul class="list-group" id="messages">
+    {% for post in posts %}
+      <li class="list-group-item">
+        <a href="/posts/{{ post.id  }}" class=""/>
+        <a href="/users/{{ post.user.id }}">
+          <img src="{{ post.user.avatar }}" alt="" id="profile-avatar">
+        </a>
+        <div class="">
+          <a href="/user/{{post.user.id}}/profile">@{{ post.user.username }}</a>
+          <span class="text-muted">{{ post.created_at.strftime('%d %B %Y') }}</span>
+          <p> <b>Title: </b> {{ post.title }}</p>
+          <p> <b>Description: </b>{{ post.description }}</p>
+          <img src="{{post.imageURL}}">
+        </div>
+        <form method="POST" action="/posts/{{ post.id }}/like" class="messages-like">
+          <button class="
+            btn 
+            btn-sm 
+            {{'btn-info' if post.id in likes else 'btn-secondary'}}"
+          >
+           <i class="fa fa-shopping-cart" style="font-size:26px"></i>
+          </button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+{% endblock %}

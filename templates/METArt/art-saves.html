@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Inspirations for  {{g.user.username}}{% endblock%}
+{% block content %}
+
+{% if g.user.inspiration|length == 0 %}
+<div class="message-heading">
+  <h2>No inspirations added yet!</h2>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQWWMk9ClR6Oeb6BjbrSloYU1d_FaHe_34acq00dmx1Q&s"  class="img-thumbnail" alt=""> 
+  <h3>Visit back when you have added inspirations!</h3>
+
+</div>
+{% else %}
+<h1>All my inspirations!</h1>
+{% set img_url = "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" %} 
+
+{% set met_url = "https://www.metmuseum.org/art/collection/search/" %}
+
+{% set NA = "Not Listed" %}
+
+{% for  objectID in arts%}
+ <img src="{{img_url}}" id="{{objectID.inspiration}}" class="img-thumbnail" class="card-image">
+
+ </form>
+ <h4>Artist Name:</h4>
+ <a href="{{met_url}}{{objectID.inspiration}}" class="artist-wiki">
+ <h4 class="artist-name" id="{{objectID.inspiration}}">{{NA}}</h4></a>
+
+ <h5>Art Title: </h5>
+ <a href="{{met_url}}{{objectID.inspiration}}" class="title-wiki">
+ <h5 class="artist-title" id="{{objectID.inspiration}}"></h5></a>
+ <form method="POST" action="/inspiration/{{objectID.id}}/remove" class="form-inline">
+ <button class="btn btn-outline-danger btn-sm ml-2">Remove</button></form>
+
+ 
+{%endfor%}
+{%endif%}
+{% endblock %}
+</div>

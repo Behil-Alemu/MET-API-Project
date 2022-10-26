@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %}THE MET API- UserProfile{% endblock%}
+{% block content %}
+
+
+    <aside class="" id="home-aside">
+      <div class="card user-card">
+        <div>
+          
+            <img src="{{ g.user.avatar }}"
+                 alt="Image for {{ g.user.username }}"
+                 id="profile-avatar">
+                 <a href="/users/{{ g.user.id }}" class="card-link"></a>
+            <p>{{ g.user.username }}</p>
+          </a>
+          <a href="/users/profile">
+          <i class='fa fa-edit' style='font-size:24px;color:rgb(172, 217, 238)'></i></a>
+          <form method="POST" action="/users/{{g.user.id}}/delete" class="form-inline">
+            <button class="btn btn-outline-danger btn-sm ml-2">Delete Profile</button>
+          </form>
+          <ul class="user-stats nav nav-pills">
+            <li class="stat">
+              <p>My arts</p>
+              <h4>
+                <a href="/users/{{ g.user.id }}">{{ g.user.posts | length }}</a>
+              </h4>
+            </li>
+           
+            {% if g.user.bio == None %}
+            <li >
+            <a href="/users/profile">
+              <p>Add Bio and Contact</p>
+          
+            </a>
+            </li>
+            {%else%}
+            <li >
+              <p><ins>Bio:</ins></p>
+              <p >{{g.user.bio }}</p>
+            </li>
+            <li >
+              <p ><ins>Social Media:</ins></p>
+              <p class="small">{{g.user.social_media }}</p>
+            </li>
+            {% endif %}
+          </ul>
+          
+        </div>
+      </div>
+    </aside>
+
+    
+      <div>
+        <a class="nav-link disabled" href="/post/new">Add Post</a>
+      </div>
+  
+  <div class="row justify-content-md-center">
+      {%for p in post%}
+        <div class="message-area">
+          <div class="message-heading">
+            <div class="col-md-7 col-lg-5">
+              <img src="{{p.imageURL}}"  class="img-thumbnail" alt="">  
+            </div>
+            {% if g.user %}
+            <form>
+              <button class="btn 
+              btn-sm btn-primary w-90" formaction="/post/{{p.id}}/edit" formmethod="get">Edit</button>
+              <button class="btn 
+              btn-sm btn-outline-danger w-90" formaction="/post/{{p.id}}/delete" formmethod="post">Delete</button>
+          </form>
+            {% endif %}
+          </div>
+          <p class="single-message">Title: {{ p.title }}</p>
+          <p class="single-message">Description: {{ p.description }}</p>
+          <span class="text-muted">{{ p.created_at.strftime('%d %B %Y') }}</span>
+        </div>
+        {%endfor%}
+
+
+ 
+{% endblock %}
