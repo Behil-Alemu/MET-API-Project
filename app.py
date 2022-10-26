@@ -21,13 +21,14 @@ import re
 CURR_USER_KEY = "curr_user"
 app = Flask(__name__)
 
-uri = os.getenv("DATABASE_URL")
-if uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://", 1)
+try:
+    prodURI = os.getenv('DATABASE_URL')
+    prodURI = prodURI.replace("postgres://", "postgresql://")
+    app.config['SQLALCHEMY_DATABASE_URI'] = prodURI
 
-app.config['SQLALCHEMY_DATABASE_URI'] = (
-    os.environ.get(
-    uri, 'postgresql:///capstone'))
+except:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///capstone'
+    
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
