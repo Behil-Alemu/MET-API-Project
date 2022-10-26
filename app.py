@@ -14,12 +14,16 @@ import json
 import requests
 from random import sample
 from sqlalchemy import func, null
+import os
+
 CURR_USER_KEY = "curr_user"
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///capstone'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+    'DATABASE_URL', 'postgresql:///capstone') 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
-app.config['SECRET_KEY'] = "chickenzarecool21837"
+
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', "chickenzarecool21837")
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 
 debug = DebugToolbarExtension(app)
